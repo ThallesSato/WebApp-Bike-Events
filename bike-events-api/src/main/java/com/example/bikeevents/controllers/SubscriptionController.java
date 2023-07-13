@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/subscription")
@@ -18,8 +19,11 @@ public class SubscriptionController {
     private SubscriptionService subscriptionService;
 
     @GetMapping()
-    public ResponseEntity<List<Subscription>> getSubscriptions(){
-        return ResponseEntity.ok(subscriptionService.subscriptionGetAll());
+    public ResponseEntity<List<Subscription>> getSubscriptions(
+            @RequestParam(name = "ride_id") Optional<Integer> ride,
+            @RequestParam(name = "client_id") Optional<Integer> client){
+        if (client.isEmpty() && ride.isEmpty()) return ResponseEntity.ok(subscriptionService.subscriptionGetAll());
+        return ResponseEntity.ok(subscriptionService.findAllByRide_IdOrClient_Id(ride,client));
     }
 
     @GetMapping("{id}")

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SubscriptionService {
@@ -26,6 +27,15 @@ public class SubscriptionService {
 
     public List<Subscription> subscriptionGetAll() {
         return subscriptionRepository.findAll();
+    }
+    public List<Subscription> subscriptionGetAllByRide(Ride ride) {
+        return subscriptionRepository.findAllByRide(ride);
+    }
+    public List<Subscription> subscriptionGetAllByClient(Client client) {
+        return subscriptionRepository.findAllByClient(client);
+    }
+    public List<Subscription> findAllByRide_IdOrClient_Id(Optional<Integer> ride, Optional<Integer> client) {
+        return subscriptionRepository.findAllByRide_IdOrClient_Id(ride,client);
     }
     public Subscription subscriptionGetById(int id){
         return subscriptionRepository.findById(id).orElseThrow(() -> new CustomExceptions.NotFoundException("Inscription not found with Id " + id));
@@ -78,11 +88,11 @@ public class SubscriptionService {
     }
 
     public void subscriptionRideDelete(Ride ride){
-        subscriptionRepository.deleteAll(subscriptionRepository.findAllByRide(ride));
+        subscriptionRepository.deleteAll(subscriptionGetAllByRide(ride));
     }
 
     public void subscriptionClientDelete(Client client){
-        subscriptionRepository.deleteAll(subscriptionRepository.findAllByClient(client));
+        subscriptionRepository.deleteAll(subscriptionGetAllByClient(client));
     }
 
 

@@ -15,4 +15,5 @@ public interface SubscriptionRepository extends JpaRepository<Subscription, Inte
     Optional<Subscription> findByRideAndClient(Ride ride, Client client);
     List<Subscription> findAllByRide(Ride ride);
     List<Subscription> findAllByClient(Client client);
+    List<Subscription> findAllByRide_IdOrClient_Id(Optional<Integer> ride_Id,Optional<Integer> client_Id);
 }

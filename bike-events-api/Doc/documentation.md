@@ -18,7 +18,7 @@ Open endpoints require no Authentication.
 ##### Request body
 
  *Scheme: AuthenticationModel*
->  Field  | Type |  Required
+>  Field  | Type |  Mandatory
 >  ------ | --------- | ----
 > username| String | yes
 > password | String | yes
@@ -38,7 +38,7 @@ Open endpoints require no Authentication.
 ##### Request body
 
  *Scheme: AuthenticationModel*
->  Field  | Type | Required
+>  Field  | Type | Mandatory
 >  ------ | --------- | -----
 > username| String | yes
 > password | String | yes
@@ -88,7 +88,7 @@ Closed endpoints require a valid bearer token in header. Token can be acquired f
 ##### Request body
 
  *Scheme: RideDto*
->  Field  | Type | Required
+>  Field  | Type | Mandatory
 >  ------ | --------- | ------
 > name | String | yes
 > start_date| String($date-time) | yes
@@ -117,7 +117,7 @@ Closed endpoints require a valid bearer token in header. Token can be acquired f
 ##### Request body
 
  *Scheme: RideDto*
->  Field  | Type | Required
+>  Field  | Type | Mandatory
 >  ------ | --------- | ------
 > name | String | yes
 > start_date| String($date-time) | yes
@@ -190,7 +190,7 @@ Closed endpoints require a valid bearer token in header. Token can be acquired f
 ##### Request body
 
  *Scheme: ClientDto*
->  Field  | Type | Required
+>  Field  | Type | Mandatory
 >  ------ | --------- | -----
 > username| String | yes
 > password | String | yes
@@ -223,6 +223,12 @@ Closed endpoints require a valid bearer token in header. Token can be acquired f
 
 <details>
  <summary><code>GET /subscription</code> List subscriptions</summary>
+
+##### Parameters
+>  Param | Type 
+>  ------ | ---------
+>  ride_id| *(opitional)* Integer($int32)
+>  client_id| *(opitional)* Integer($int32)
 
 ##### Responses
 
@@ -257,7 +263,7 @@ Closed endpoints require a valid bearer token in header. Token can be acquired f
 ##### Request body
 
  *Scheme: SubscriptionDto*
->  Field  | Type | Required
+>  Field  | Type | Mandatory
 >  ------ | --------- | -----
 > client_id| Integer($int32) | yes
 > ride_id| Integer($int32) | yes
