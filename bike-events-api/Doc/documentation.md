@@ -4,7 +4,7 @@
 **Name**: Thalles Sato  
 https://www.linkedin.com/in/thalles-sato-79381b192/  
 thalles_sato@hotmail.com  
-Phone: +55 (11) 95647-6237 
+Phone: +55 (11) 95647-6237  
 **License:** MIT License
 
 ## Open Endpoints
